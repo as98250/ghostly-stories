@@ -28,12 +28,24 @@ Story.init(
     user_id:{
       type: DataTypes.STRING,
       primaryKey: true,
+      references: {
+        model: 'user',
+        key: 'id'
+      }
     },
     tag_id:{
       type: DataTypes.STRING,
+      references: {
+        model: 'tag',
+        key: 'id'
+      }
     },
     comment_id:{
       type: DataTypes.STRING,
+      references: {
+        model: 'comment',
+        key: 'id'
+      }
     },
   },
   {
