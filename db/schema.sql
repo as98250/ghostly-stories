@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS creepy_db;
+CREATE DATABASE creepy_db;
+
