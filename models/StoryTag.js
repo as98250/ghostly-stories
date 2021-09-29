@@ -1,18 +1,11 @@
 const { Model, DataTypes } = require('sequelize');
+
 const sequelize = require('../config/connection');
 
-class Comment extends Model {
-  checkPassword(loginPw) {
-    return bcrypt.compareSync(loginPw, this.password);
-  }
-};
+class StoryTag extends Model {}
 
-Comment.init(
+StoryTag.init(
   {
-    description: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-    },
     story_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -20,14 +13,21 @@ Comment.init(
         key: 'id'
       }
     },
+    tag_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'tag',
+        key: 'id'
+      }
+    }
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'comment',
+    modelName: 'story_tag',
   }
 );
 
-module.exports = Comment;
+module.exports = StoryTag;

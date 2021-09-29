@@ -15,18 +15,17 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  await Tag.bulkCreate(tagData, {
+  await Story.bulkCreate(storyData, {
     returning: true,
   });
-
-  await Story.bulkCreate(storyData, {
+  
+  await Tag.bulkCreate(tagData, {
     returning: true,
   });
   
   await Comment.bulkCreate(commentData, {
     returning: true,
   });
-
   process.exit(0);
 };
 

@@ -1,42 +1,32 @@
 [
     {
-        "name": "Ghosts",
-        "story_id": "1"
+        "name": "Ghosts"
     },
     {
-        "name": "Scary",
-        "story_id": "2"
+        "name": "Scary"
     },
     {
-        "name": "Terror",
-        "story_id": "3"
+        "name": "Terror"
     },
     {
-        "name": "Spooky",
-        "story_id": "4"
+        "name": "Spooky"
     },
     {
-        "name": "Horror",
-        "story_id": "5"
+        "name": "Horror"
     },
     {
-        "name": "Supernatural",
-        "story_id": "6"
+        "name": "Supernatural"
     },
     {
-        "name": "Eerie",
-        "story_id": "7"
+        "name": "Eerie"
     },
     {
-        "name": "Weird",
-        "story_id": "8"
+        "name": "Weird"
     },
     {
-        "name": "Frightening",
-        "story_id": "9"
+        "name": "Frightening"
     },
     {
-        "name": "Ominous",
-        "story_id": "10"
+        "name": "Ominous"
     }
 ]
