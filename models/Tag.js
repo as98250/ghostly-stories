@@ -5,23 +5,10 @@ class Tag extends Model {}
 
 Tag.init(
   {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
-    },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    story_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'story',
-        key: 'id',
-      },
-    },
+    }
   },
   {
     sequelize,
