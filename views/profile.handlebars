@@ -1,0 +1,23 @@
+<h2>User Profile</h2>
+<div>
+    {{!-- PROFILE IMG AND USERNAME SIDE PANEL --}}
+    <div>
+        <img/>
+        <h3>{{username}}</h3>
+    </div>
+    {{!-- STORY SECTION WITH ADD/EDIT BTNs --}}
+    <div>
+        <div>
+            {{!-- STORY DISPLAYED --}}
+            <h4>{{story.title}}</h4>
+            <p>{{story.content}}</p>
+            <img scr=`{{story.image}}`/>
+            {{!-- EDIT STORY BTN (Font Awesome Icon) --}}
+            <button class="btn btn-warning" type="submit">EDIT <i class='fas fa-ghost'></i> STORY</button>
+        </div>
+        <button class="btn btn-light" type="submit">ADD <i class='fas fa-ghost'></i> STORY</button>
+    </div>
+</div>
+
+{{!-- WHERE SHOULD THIS LINK TO?? --}}
+<script src="/js/login.js"></script>
