@@ -1,0 +1,42 @@
+[
+    {
+        "name": "Ghosts",
+        "story_id": "1"
+    },
+    {
+        "name": "Scary",
+        "story_id": "2"
+    },
+    {
+        "name": "Terror",
+        "story_id": "3"
+    },
+    {
+        "name": "Spooky",
+        "story_id": "4"
+    },
+    {
+        "name": "Horror",
+        "story_id": "5"
+    },
+    {
+        "name": "Supernatural",
+        "story_id": "6"
+    },
+    {
+        "name": "Eerie",
+        "story_id": "7"
+    },
+    {
+        "name": "Weird",
+        "story_id": "8"
+    },
+    {
+        "name": "Frightening",
+        "story_id": "9"
+    },
+    {
+        "name": "Ominous",
+        "story_id": "10"
+    }
+]
