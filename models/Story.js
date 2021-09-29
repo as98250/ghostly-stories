@@ -1,38 +1,39 @@
+const { title } = require('process');
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Project extends Model {}
+class Story extends Model {}
 
-Project.init(
+Story.init(
   {
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    title:{
       type: DataTypes.STRING,
       allowNull: false,
     },
-    description: {
+    content:{
+      type: DataTypes.STRING,
+      allowNull: false,
+      len: [4,2000],
+    },
+    image:{
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    user_id:{
+      type: DataTypes.STRING,
+      primaryKey: true,
+    },
+    tag_id:{
       type: DataTypes.STRING,
     },
-    date_created: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
-    },
-    needed_funding: {
-      type: DataTypes.FLOAT,
-      allowNull: false,
-    },
-    user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'user',
-        key: 'id',
-      },
+    comment_id:{
+      type: DataTypes.STRING,
     },
   },
   {
@@ -40,8 +41,9 @@ Project.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'project',
+    modelName: 'user',
   }
-);
 
-module.exports = Project;
+)
+
+module.exports = Story;
