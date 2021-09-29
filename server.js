@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(require('./controllers/dish-routes'));
+app.use(require('./controllers/index.js'));
 
 app.use(routes);
 
