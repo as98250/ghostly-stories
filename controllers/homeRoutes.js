@@ -33,24 +33,19 @@ router.get('/story/:id', async (req, res) => {
                     model: User,
                     attributes: ['username',],
                 },
-                // {
-                //     model: StoryTag,
-                //     attributes: ['tag_id',],
-                //     // includes: [
-                //     //     {
-                //     //         model: Tag,
-                //     //         attributes: ['name'],
-                //     //     },
-                //     // ],
-                // },
-                // {
-                //     model: Comment,
-                //     attributes: ['description', 'story_id'],
-                // },
+                {
+                    model: Tag,
+                    through: StoryTag,
+                    attributes: ['name'],
+                },
+                {
+                    model: Comment,
+                    attributes: ['description', 'story_id'],
+                },
             ],
         });
         const story = storyDataId.get({ plain: true });
-
+        console.log(story);
         res.render('story', { story });
     } catch (err) {
         console.log(err);
