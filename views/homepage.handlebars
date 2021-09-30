@@ -1,5 +1,10 @@
 <div class="story container">
- <div>
+  <ul class="stories">
+  {{#each story}}
+    <li>{{this.title}}</li>
+  {{/each}}
+</ul>
+ {{!-- <div>
    {{story.title}}
    {{story.content}}
    {{story.image}}
@@ -18,7 +23,7 @@
    {{story.title}}
    {{story.content}}
    {{story.image}}
- </div>
+ </div> --}}
 <div>
   <h2>Recommended Topics</h2>
 
