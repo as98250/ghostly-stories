@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Story, StoryTag, Tag, User, Comment } = require('../models');
+const withAuth = require('../utils/auth');
 
 // Get all stories and Join with user data
 
@@ -53,7 +54,7 @@ router.get('/story/:id', async (req, res) => {
     }
 });
 
-router.get('/profile/:id', async (req, res) => {
+router.get('/profile/:id', withAuth, async (req, res) => {
     try {
         const profileData = await User.findByPk(req.params.id, {
             include: [
@@ -65,12 +66,24 @@ router.get('/profile/:id', async (req, res) => {
         });
         const user = profileData.get({ plain: true });
 
-        res.render('profile', { user });
+        res.render('profile', { 
+            user,
+        logged_in: true });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
     }
 });
+
+router.get('/login', (req, res) => {
+    // If the user is already logged in, redirect the request to another route
+    if (req.session.logged_in) {
+      res.redirect('/');
+      return;
+    }
+  
+    res.render('login');
+  });
 
 
 
