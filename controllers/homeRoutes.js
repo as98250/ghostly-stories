@@ -30,18 +30,14 @@ router.get('/story/:id', async (req, res) => {
     try {
         const storyDataId = await Story.findByPk(req.params.id, {
             include: [
+                User,
                 {
-                    model: User,
-                    attributes: ['username',],
+                    model: Comment,
+                    include: [User],
                 },
                 {
                     model: Tag,
                     through: StoryTag,
-                    attributes: ['name'],
-                },
-                {
-                    model: Comment,
-                    attributes: ['description', 'story_id'],
                 },
             ],
         });
@@ -54,7 +50,7 @@ router.get('/story/:id', async (req, res) => {
     }
 });
 
-router.get('/profile/:id', withAuth, async (req, res) => {
+router.get('/profile/:id', async (req, res) => {
     try {
         const profileData = await User.findByPk(req.params.id, {
             include: [

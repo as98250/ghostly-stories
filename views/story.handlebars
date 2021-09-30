@@ -5,14 +5,48 @@
     {{story.content}}
     {{story.image}}
     <div>
-    {{#each story.tags}}
+    {{#each story.Tag}}
     {{name}}
     {{/each}}
     </div>
     <div>
-    {{#each story.comment}}
-    {{description}}
-    {{/each}}
+    {{#if story.Comments}}
+    <section class="card">
+      <div class="card-header">
+        <h3>Comments</h3>
+      </div>
+
+      <div class="card-body">
+        {{#each story.Comments}}
+          <div>
+            <p>
+              {{body}}
+            </p>
+            <p>
+              &mdash; {{User.username}}, {{format_date createdAt}}
+            </p>
+          </div>
+        {{/each}}
+      </div>
+    </section>
+  {{/if}}
+  {{#if story.Tag}}
+    <section class="card">
+      <div class="card-header">
+        <h3>Tags</h3>
+      </div>
+
+      <div class="card-body">
+        {{#each story.Tag}}
+          <div>
+            <p>
+              {{name}}
+            </p>
+          </div>
+        {{/each}}
+      </div>
+    </section>
+  {{/if}}
     </div>
 </div>
  
