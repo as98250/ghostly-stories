@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Story, StoryTag, Tag, User } = require('../models');
+const { Story, StoryTag, Tag, User, Comment } = require('../models');
 
 // Get all stories and Join with user data
 
@@ -25,17 +25,30 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/story/:story_id', async (req, res) => {
+router.get('/story/:id', async (req, res) => {
     try {
-        const storyDataId = await StoryTag.findBy(req.params.story_id, {
+        const storyDataId = await Story.findByPk(req.params.id, {
             include: [
                 {
-                    model: Story,
-                    attributes: ['title', 'content', 'image',],
+                    model: User,
+                    attributes: ['username',],
                 },
+                // {
+                //     model: StoryTag,
+                //     attributes: ['tag_id',],
+                //     // includes: [
+                //     //     {
+                //     //         model: Tag,
+                //     //         attributes: ['name'],
+                //     //     },
+                //     // ],
+                // },
+                // {
+                //     model: Comment,
+                //     attributes: ['description', 'story_id'],
+                // },
             ],
         });
-
         const story = storyDataId.get({ plain: true });
 
         res.render('story', { story });
@@ -43,7 +56,25 @@ router.get('/story/:story_id', async (req, res) => {
         console.log(err);
         res.status(500).json(err);
     }
+});
 
+router.get('/profile/:id', async (req, res) => {
+    try {
+        const profileData = await User.findByPk(req.params.id, {
+            include: [
+                {
+                    model: Story,
+                    attributes: ['user_id', 'title'],
+                },
+            ],
+        });
+        const user = profileData.get({ plain: true });
+
+        res.render('profile', { user });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
 });
 
 

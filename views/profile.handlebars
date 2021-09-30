@@ -3,15 +3,13 @@
     {{!-- PROFILE IMG AND USERNAME SIDE PANEL --}}
     <div>
         <img/>
-        <h3>{{username}}</h3>
+        <h3>{{user.username}}</h3>
     </div>
     {{!-- STORY SECTION WITH ADD/EDIT BTNs --}}
     <div>
         <div>
             {{!-- STORY DISPLAYED --}}
-            <h4>{{story.title}}</h4>
-            <p>{{story.content}}</p>
-            <img scr=`{{story.image}}`/>
+            <h4>{{user.story.title}}</h4>
             {{!-- EDIT STORY BTN (Font Awesome Icon) --}}
             <button class="btn btn-warning" type="submit">EDIT <i class='fas fa-ghost'></i> STORY</button>
         </div>
