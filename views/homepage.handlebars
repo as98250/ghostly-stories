@@ -1,31 +1,10 @@
 <div class="story container">
-  <ul class="stories">
-  {{#each story}}
-    <li>{{this.title}}</li>
-  {{/each}}
-</ul>
- {{!-- <div>
-   {{story.title}}
-   {{story.content}}
-   {{story.image}}
- </div>
- <div>
-   {{story.title}}
-   {{story.content}}
-   {{story.image}}
- </div>
- <div>
-   {{story.title}}
-   {{story.content}}
-   {{story.image}}
- </div>
- <div>
-   {{story.title}}
-   {{story.content}}
-   {{story.image}}
- </div> --}}
-<div>
-  <h2>Recommended Topics</h2>
-
-</div>
+    {{#each stories as |story|}}
+    {{story.title}}
+    {{story.content}}
+    {{story.image}}
+    {{/each}}
+  <div>
+    <h2>Recommended Topics</h2>
+  </div>
 </div>
