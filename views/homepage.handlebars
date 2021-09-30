@@ -1,11 +1,11 @@
+{{#each stories as |story|}}
 <div class="story container">
-    {{#each stories as |story|}}
-    {{story.user.username}}
-    {{story.title}}
-    {{story.content}}
-    {{story.image}}
-    {{/each}}
+  {{story.user.username}}
+  {{story.title}}
+  {{story.content}}
+  {{story.image}}
   <div>
+    {{/each}}
     <h2>Recommended Topics</h2>
   </div>
 </div>
