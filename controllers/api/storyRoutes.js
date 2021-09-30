@@ -1,45 +1,52 @@
 const router = require('express').Router();
-const {Comment, Story, StoryTag, Tag, User} = require('../../models');
+const { Story } = require('../../models');
+const withAuth = require('../../utils/auth');
 
-//GET Route for stories
+router.post('/', async (req, res) => {
+    const body = req.body;
 
-router.get('/stories', async (req, res) => {
-    
+    try {
+        const story = await Story.create({ ...body, userId: req.session.userId });
+        res.json(story);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+router.put('/:id', async (req, res) => {
+    try {
+        const [selectedStory] = await Story.update(req.body, {
+            where: {
+                id: req.params.id,
+            },
+        });
+
+        if (selectedStory > 0) {
+            res.status(200).end();
+        } else {
+            res.status(404).end();
+        }
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+router.delete('/:id', async (req, res) => {
+    try {
+        const [selectedStory] = Story.destroy({
+            where: {
+                id: req.params.id,
+            },
+        });
+
+        if (selectedStory > 0) {
+            res.status(200).end();
+        } else {
+            res.status(404).end();
+        }
+    } catch (err) {
+        res.status(500).json(err);
+    }
 });
 
 module.exports = router;
-
-
-// router.post('/', async (req, res) => {
-//   try {
-//     const newProject = await Project.create({
-//       ...req.body,
-//       user_id: req.session.user_id,
-//     });
-
-//     res.status(200).json(newProject);
-//   } catch (err) {
-//     res.status(400).json(err);
-//   }
-// });
-
-// router.delete('/:id', async (req, res) => {
-//   try {
-//     const projectData = await Project.destroy({
-//       where: {
-//         id: req.params.id,
-//         user_id: req.session.user_id,
-//       },
-//     });
-
-//     if (!projectData) {
-//       res.status(404).json({ message: 'No project found with this id!' });
-//       return;
-//     }
-
-//     res.status(200).json(projectData);
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-

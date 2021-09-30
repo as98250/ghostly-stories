@@ -16,7 +16,7 @@ Story.init(
     },
     image:{
       type: DataTypes.STRING,
-      allowNull: false,
+      defaultValue: "playground.jpeg",
     },
     user_id:{
       type: DataTypes.INTEGER,
