@@ -49,5 +49,5 @@ header {
   font-size: 80px;
   color: var(--darkRed);
   text-align: center;
-  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 30px var(--lightRed), 0 0 70px var(--Orange);
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--lightRed), 0 0 20px var(--Orange);
 }
