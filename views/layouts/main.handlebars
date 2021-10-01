@@ -14,24 +14,24 @@
 </head>
 
 <body>
-  <header class="display-flex justify-left align-flex-start p-2">
-    <div class="container">
-      <div class="row">
+  <div class="container">
+    <div class="row">
+      <header>
+          <a class="title" href="/">Ghostly Stories</a>
         <nav class="nav">
-          <h1 class="col"><a href="/">Ghostly Stories</a></h1>
           <a class="nav-link" href="/login">Login</a>
           <a class="nav-link" href="/profile">Profile</a>
           <a class="nav-link" href="#" id="logout-link">Logout</a>
         </nav>
-      </div>
+      </header>
     </div>
-    <!-- Only display the logout button if the user is logged in -->
-    {{#if logged_in}}
-    <nav>
-      <button class="btn" id="logout">logout</button>
-    </nav>
-    {{/if}}
-  </header>
+  </div>
+  <!-- Only display the logout button if the user is logged in -->
+  {{#if logged_in}}
+  <nav>
+    <button class="btn" id="logout">logout</button>
+  </nav>
+  {{/if}}
   <main class="container container-fluid mt-5">
     {{{ body }}}
   </main>
