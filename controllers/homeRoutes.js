@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
             ],
         });
         //console.log(storyData);
-        const stories = storyData.map(story => story.get({ plain: true }));
+        const stories = storyData.map((story) => story.get({ plain: true }));
         console.log(stories);
         res.render('homepage', { stories });
     } catch (err) {
@@ -41,9 +41,10 @@ router.get('/story/:id', async (req, res) => {
                 },
             ],
         });
-        const story = storyDataId.get({ plain: true });
-        console.log(story);
-        res.render('story', { story });
+        if (storyDataId) {
+            const story = storyDataId.get({ plain: true });
+            res.render('story', { story });
+        }
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
@@ -53,13 +54,19 @@ router.get('/story/:id', async (req, res) => {
 router.get('/profile/:id', async (req, res) => {
     try {
         const profileData = await User.findByPk(req.params.id, {
-            include: [Story],
+            include: [
+                {
+                    model: Story,
+                    attributes: ['user_id', 'title'],
+                },
+            ],
         });
         const user = profileData.get({ plain: true });
 
-        res.render('profile', { 
+        res.render('profile', {
             user,
-        logged_in: true });
+            logged_in: true
+        });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
@@ -69,12 +76,12 @@ router.get('/profile/:id', async (req, res) => {
 router.get('/login', (req, res) => {
     // If the user is already logged in, redirect the request to another route
     if (req.session.logged_in) {
-      res.redirect('/');
-      return;
+        res.redirect('/');
+        return;
     }
-  
+
     res.render('login');
-  });
+});
 
 
 
