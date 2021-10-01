@@ -54,10 +54,8 @@ router.get('/profile/:id', async (req, res) => {
     try {
         const profileData = await User.findByPk(req.params.id, {
             include: [
-                {
-                    model: Story,
-                    attributes: ['user_id', 'title'],
-                },
+                Story,
+
             ],
         });
         const user = profileData.get({ plain: true });
