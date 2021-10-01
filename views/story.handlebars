@@ -5,19 +5,19 @@
     {{story.content}}
     {{story.image}}
     <div>
-    {{#each story.Tag}}
+    {{#each story.tags}}
     {{name}}
     {{/each}}
     </div>
     <div>
-    {{#if story.Comments}}
+    {{#if story.comments}}
     <section class="card">
       <div class="card-header">
         <h3>Comments</h3>
       </div>
 
       <div class="card-body">
-        {{#each story.Comments}}
+        {{#each story.comments}}
           <div>
             <p>
               {{body}}
@@ -30,14 +30,14 @@
       </div>
     </section>
   {{/if}}
-  {{#if story.Tag}}
+  {{#if story.tags}}
     <section class="card">
       <div class="card-header">
         <h3>Tags</h3>
       </div>
 
       <div class="card-body">
-        {{#each story.Tag}}
+        {{#each story.tags}}
           <div>
             <p>
               {{name}}

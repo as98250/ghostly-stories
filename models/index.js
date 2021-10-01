@@ -2,10 +2,19 @@ const User = require('./User');
 const Story = require('./Story');
 const Comment = require('./Comment');
 const Tag = require('./Tag')
-const StoryTag = require('./StoryTag')
+const StoryTag = require('./StoryTag');
+
 
 User.hasMany(Story, {
   foreignKey: 'user_id'
+});
+
+User.hasMany(Comment, {
+  foreignKey: 'user_id'
+});
+
+Comment.belongsTo(User, {
+  foreignKey: 'user_id',
 });
 
 Story.belongsTo(User, {

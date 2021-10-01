@@ -6,15 +6,17 @@
         <h3>{{user.username}}</h3>
     </div>
     {{!-- STORY SECTION WITH ADD/EDIT BTNs --}}
+    {{#each user.stories}}
     <div>
         <div>
             {{!-- STORY DISPLAYED --}}
-            <h4>{{user.story.title}}</h4>
+            <h4>{{title}}</h4>
             {{!-- EDIT STORY BTN (Font Awesome Icon) --}}
             <button class="btn btn-warning" type="submit">EDIT <i class='fas fa-ghost'></i> STORY</button>
         </div>
         <button class="btn btn-light" type="submit">ADD <i class='fas fa-ghost'></i> STORY</button>
     </div>
+    {{/each}}
 </div>
 
 {{!-- WHERE SHOULD THIS LINK TO?? --}}
