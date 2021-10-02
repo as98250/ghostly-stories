@@ -1,10 +1,12 @@
 <div class="container">
   <div class="justify-content-center text-center">
-    <h2 class="jumbotron bg-transparent text-danger">{{story.title}}</h2>
+    <h2 class="jumbotron bg-transparent text-danger singleStory">{{story.title}}</h2>
     <p>Submitted By:</p>
     <h2 class="text-warning">{{{get_emoji}}} {{story.user.username}}</h2>
+    <br>
     {{story.content}}
     <div>
+      <br>
       <img src="../images/{{story.image}}">
       {{#each story.tags}}
       {{name}}
