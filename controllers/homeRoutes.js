@@ -51,27 +51,27 @@ router.get('/story/:id', async (req, res) => {
     }
 });
 
-// router.get('/profile/:id', withAuth, async (req, res) => {
-//     try {
-//         const profileData = await User.findByPk(req.params.id, {
-//             include: [
-//                 {
-//                     model: Story,
-//                     attributes: ['user_id', 'title'],
-//                 },
-//             ],
-//         });
-//         const user = profileData.get({ plain: true });
-
-//         res.render('profile', {
-//             user,
-//             loggedIn: true
-//         });
-//     } catch (err) {
-//         console.log(err);
-//         res.status(500).json(err);
-//     }
-// });
+router.get('/profile/:id', withAuth, async (req, res) => {
+    try {
+        const profileData = await User.findByPk(req.params.id, {
+            include: [
+                {
+                    model: Story,
+                    attributes: ['user_id', 'title'],
+                },
+            ],
+        });
+        const user = profileData.get({ plain: true });
+        // res.json(user);
+        res.render('profile', {
+            user,
+            // loggedIn: true
+        });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
 
 router.get('/profile', withAuth, async (req, res) => {
     try {
