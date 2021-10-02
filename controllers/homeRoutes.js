@@ -51,43 +51,29 @@ router.get('/story/:id', async (req, res) => {
     }
 });
 
-router.get('/profile/:id', withAuth, async (req, res) => {
-    try {
-        const profileData = await User.findByPk(req.params.id, {
-            include: [
-                {
-                    model: Story,
-                    attributes: ['user_id', 'title'],
-                },
-            ],
-        });
-        const user = profileData.get({ plain: true });
-        // res.json(user);
-        res.render('profile', {
-            user,
-            // loggedIn: true
-        });
-    } catch (err) {
-        console.log(err);
-        res.status(500).json(err);
-    }
-});
+// router.get('/profile/:id', withAuth, async (req, res) => {
+//     try {
+//         const profileData = await User.findByPk(req.params.id, {
+//             include: [
+//                 {
+//                     model: Story,
+//                     attributes: ['user_id', 'title'],
+//                 },
+//             ],
+//         });
+//         const user = profileData.get({ plain: true });
+//         // res.json(user);
+//         res.render('profile', {
+//             user,
+//             // loggedIn: true
+//         });
+//     } catch (err) {
+//         console.log(err);
+//         res.status(500).json(err);
+//     }
+// });
 
-router.get('/profile', withAuth, async (req, res) => {
-    try {
-      const storyData = await Story.findAll({
-        where: {
-          id: req.session.userId,
-        },
-      });
-  
-      const stories = storyData.map((story) => story.get({ plain: true }));
-  
-      res.render('profile', { stories });
-    } catch (err) {
-      res.redirect('login');
-    }
-  });
+
 
 router.get('/login', (req, res) => {
     // If the user is already logged in, redirect the request to another route
@@ -95,23 +81,23 @@ router.get('/login', (req, res) => {
         res.redirect('/');
         return;
     }
-
     res.render('login');
+
 });
 
 router.get('/logout', (req, res) => {
-      req.session.destroy(() => {
+    req.session.destroy(() => {
         res.redirect('/login');
-      });
-  });
+    });
+});
 
 router.get('/signup', (req, res) => {
     if (req.session.loggedIn) {
-      res.redirect('/');
-      return;
+        res.redirect('/');
+        return;
     }
-  
+
     res.render('signup');
-  });
+});
 
 module.exports = router;
