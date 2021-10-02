@@ -1,24 +1,21 @@
 
   {{#each stories as |story|}}
-  <div class="card mb-3">
+  <a href= "/story/{{story.id}}"><div class="card mb-3 homepageCard">
     <div class="row no-gutters">
       <div class="col-md-4">
         <img src="../images/playground.jpeg" class="card-img" alt="playground">
       </div>
       <div class="col-md-8">
         <div class="card-body">
-          <h5 class="card-title">{{story.title}}</h5>
-          <p class="card-text">This is text for the content...</p>
+          <h3 class="card-title">{{story.title}}</h3>
+          <p class="card-text">{{story.content}}</p>
           
           <p class="card-text"><small class="text-muted">Created by: {{story.user.username}}</small></p>
         </div>
       </div>
     </div>
-  </div>
-  <div>
+  </div> </a>
     {{/each}}
-    <h2>Recommended Topics</h2>
-  </div>
 
 
 {{!-- {{story.image}} need to add story image, it is currently hard coded--}}
