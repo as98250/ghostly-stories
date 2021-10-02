@@ -73,7 +73,29 @@ router.get('/story/:id', async (req, res) => {
 //     }
 // });
 
+router.get('/profile', withAuth, async (req, res) => {
+    try {
+        const storyData = await Story.findAll({
+            where: {
+                id: req.session.userId,
+            },
+            include: {
+                model: User,
+                attributes: ['username']
+            }
+        });
+        const userData = await User.findbyPk(req.session.userId);
 
+        const stories = storyData.map((story) => story.get({ plain: true }));
+        const users = userData.get( { plain: true });
+
+
+        res.render('profile', { stories, users });
+        
+    } catch (err) {
+        res.redirect('login');
+    }
+});
 
 router.get('/login', (req, res) => {
     // If the user is already logged in, redirect the request to another route
