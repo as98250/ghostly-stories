@@ -9,17 +9,16 @@ User.hasMany(Story, {
   foreignKey: 'user_id'
 });
 
+Story.belongsTo(User, {
+  foreignKey: 'user_id',
+});
+
 User.hasMany(Comment, {
   foreignKey: 'user_id'
 });
 
 Comment.belongsTo(User, {
   foreignKey: 'user_id',
-});
-
-Story.belongsTo(User, {
-  foreignKey: 'user_id',
-  
 });
 
 Story.hasMany(Comment, {
