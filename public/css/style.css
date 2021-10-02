@@ -18,12 +18,13 @@ body{
     background-color: var(--dark);
     color:var(--darkTan);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-image: url("../images/creepystorybg.jpg")
 }
 
 .title {
   font-family: 'Butcherman', cursive;
   text-decoration: none;
-  font-size: 400%;
+  font-size: 300%;
   color: var(--darkRed);
 }
 
@@ -32,6 +33,7 @@ nav a{
     font-size: 200%;
     padding: 10px;
     color: var(--darkTan);
+    font-family: 'Pinyon Script', cursive;
 }
 
 nav a:hover {
@@ -42,11 +44,11 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 20px;
+    padding: 10px 20px 10px 20px;
+    background-color: var(--dark);
 }
 
 .glow {
-  font-size: 80px;
   color: var(--darkRed);
   text-align: center;
   text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--lightRed), 0 0 20px var(--Orange);
@@ -60,8 +62,13 @@ header {
   color: var(--darkTan);
   border-radius: 20px;
   margin: 20px;
+  background-color: var(--dark);
 }
 
 .homepageCard:hover {
   text-decoration: none;
+}
+
+.singleStory {
+  font-family: 'Pinyon Script', cursive;
 }
