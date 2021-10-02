@@ -1,23 +1,24 @@
-<div class="row align-center mb-5">
-  <div class="col-md-6">
+<div class="container">
+  <div class="justify-content-center">
+    <h2>{{story.title}}</h2>
+    <p>Submitted By:</p>
     <h2>{{{get_emoji}}} {{story.user.username}}</h2>
-    {{story.title}}
     {{story.content}}
-    {{story.image}}
     <div>
-    {{#each story.tags}}
-    {{name}}
-    {{/each}}
+      <img src="../images/{{story.image}}">
+      {{#each story.tags}}
+      {{name}}
+      {{/each}}
     </div>
     <div>
-    {{#if story.comments}}
-    <section class="card">
-      <div class="card-header">
-        <h3>Comments</h3>
-      </div>
+      {{#if story.comments}}
+      <section>
+        <div>
+          <h3>Comments</h3>
+        </div>
 
-      <div class="card-body">
-        {{#each story.comments}}
+        <div>
+          {{#each story.comments}}
           <div>
             <p>
               {{body}}
@@ -26,27 +27,26 @@
               &mdash; {{User.username}}, {{format_date createdAt}}
             </p>
           </div>
-        {{/each}}
-      </div>
-    </section>
-  {{/if}}
-  {{#if story.tags}}
-    <section class="card">
-      <div class="card-header">
-        <h3>Tags</h3>
-      </div>
+          {{/each}}
+        </div>
+      </section>
+      {{/if}}
+      {{#if story.tags}}
+      <section>
+        <div>
+          <h3>Tags</h3>
+        </div>
 
-      <div class="card-body">
-        {{#each story.tags}}
+        <div>
+          {{#each story.tags}}
           <div>
             <p>
               {{name}}
             </p>
           </div>
-        {{/each}}
-      </div>
-    </section>
-  {{/if}}
+          {{/each}}
+        </div>
+      </section>
+      {{/if}}
     </div>
-</div>
- 
+  </div>
