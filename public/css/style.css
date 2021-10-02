@@ -42,7 +42,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 10px;
+    margin: 20px;
 }
 
 .glow {
@@ -50,4 +50,18 @@ header {
   color: var(--darkRed);
   text-align: center;
   text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--lightRed), 0 0 20px var(--Orange);
+}
+
+.homepageCard {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  text-decoration: none;
+  color: var(--darkTan);
+  border-radius: 20px;
+  margin: 20px;
+}
+
+.homepageCard:hover {
+  text-decoration: none;
 }
