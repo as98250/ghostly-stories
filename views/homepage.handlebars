@@ -1,18 +1,24 @@
-{{#each stories as |story|}}
-<div class="story container">
 
-{{!-- uncomment to see how this link works. when they click view
-profile it will send them to the profile of that user. my tutor showed
-me this as a concept we may want to use for when the user is loged in 
-but on the home page and want to navigate back to their profile   --}}
-{{!-- <a href="/profile/{{story.user_id}}">view profile</a> --}}
-  {{story.user.username}}
-  {{story.title}}
-  {{story.content}}
-  {{story.image}}
+  {{#each stories as |story|}}
+  <div class="card mb-3">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="../images/playground.jpeg" class="card-img" alt="playground">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{story.title}}</h5>
+          <p class="card-text">This is text for the content...</p>
+          
+          <p class="card-text"><small class="text-muted">Created by: {{story.user.username}}</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
   <div>
     {{/each}}
     <h2>Recommended Topics</h2>
   </div>
-</div>
 
+
+{{!-- {{story.image}} need to add story image, it is currently hard coded--}}
