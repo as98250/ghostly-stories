@@ -15,7 +15,6 @@
 }
 
 body{
-    background-color: var(--dark);
     color:var(--darkTan);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-image: url("../images/creepystorybg.jpg")
@@ -26,6 +25,15 @@ body{
   text-decoration: none;
   font-size: 300%;
   color: var(--darkRed);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+    background-color: rgba(0, 0, 0, 0.74);
+    border-bottom: solid var(--dark) 5px;
 }
 
 nav a{
@@ -40,18 +48,10 @@ nav a:hover {
   text-shadow: 1px 1px 2px var(--darkRed), 0 0 25px var(--lightRed), 0 0 5px var(--Orange);
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px 10px 20px;
-    background-color: var(--dark);
-}
-
 .glow {
   color: var(--darkRed);
   text-align: center;
-  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--lightRed), 0 0 20px var(--Orange);
+  text-shadow:  0 0 10px rgb(224, 170, 170), 0 0 15px var(--lightRed), 0 0 20px var(--Orange);
 }
 
 .homepageCard {
@@ -59,14 +59,18 @@ header {
   overflow: hidden;
   white-space: nowrap;
   text-decoration: none;
+  max-height: 300px;
   color: var(--darkTan);
   border-radius: 20px;
-  margin: 20px;
-  background-color: var(--dark);
+  margin: 20px 40px;
+  background-color:rgba(0, 0, 0, 0.699);
+  border: solid var(--dark) 5px;
 }
 
 .homepageCard:hover {
   text-decoration: none;
+  box-shadow: 0 0 15px var(--dark), 0 0 25px silver;
+  opacity: 1px;
 }
 
 .singleStory {

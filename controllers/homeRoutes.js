@@ -9,14 +9,22 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
     try {
         // convert to a plain JSON object
-        const storyData = await Story.findAll({
+        const storyData = await Story.findAll(
+            // {
+            //     limit:7,
+            //     where: [
+            //         content: req.body.content,
+            //     ]
+            // },
+            {
             include: [
                 {
                     model: User,
                     attributes: ['username'],
                 },
             ],
-        });
+            }
+            );
         //console.log(storyData);
         const stories = storyData.map((story) => story.get({ plain: true }));
         console.log(stories);
