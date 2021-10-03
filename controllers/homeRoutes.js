@@ -17,14 +17,14 @@ router.get('/', async (req, res) => {
             //     ]
             // },
             {
-            include: [
-                {
-                    model: User,
-                    attributes: ['username'],
-                },
-            ],
+                include: [
+                    {
+                        model: User,
+                        attributes: ['username'],
+                    },
+                ],
             }
-            );
+        );
         //console.log(storyData);
         const stories = storyData.map((story) => story.get({ plain: true }));
         console.log(stories);
@@ -87,19 +87,22 @@ router.get('/profile', withAuth, async (req, res) => {
             where: {
                 id: req.session.userId,
             },
-            include: {
-                model: User,
-                attributes: ['username']
-            }
+            include: [
+                User
+            ]
+            // include: {
+            //     model: User,
+            //     attributes: ['username']
+            // }
         });
-        const userData = await User.findbyPk(req.session.userId);
+        // const userData = await User.findbyPk(req.session.userId);
 
         const stories = storyData.map((story) => story.get({ plain: true }));
-        const users = userData.get( { plain: true });
+        // const users = userData.get( { plain: true });
 
 
-        res.render('profile', { stories, users });
-        
+        res.render('profile', { stories });
+
     } catch (err) {
         res.redirect('login');
     }
