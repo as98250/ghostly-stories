@@ -22,11 +22,11 @@ Comment.belongsTo(User, {
 });
 
 Story.hasMany(Comment, {
-  foreignKey: 'comment_id'
+  foreignKey: 'story_id'
 });
 
 Comment.belongsTo(Story, {
-  foreignKey: 'comment_id',
+  foreignKey: 'story_id',
 });
 
 Tag.belongsToMany(Story, {
