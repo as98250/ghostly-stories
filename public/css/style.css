@@ -122,6 +122,11 @@ nav a:hover {
   color: var(--darkTan)
 }
 
+.profileUser {
+    padding-bottom: 15px;
+    color: var(--lightRed);
+}
+
 .titleInput {
   width: 50%;
   padding: 5px;
