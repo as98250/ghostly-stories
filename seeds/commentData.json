@@ -1,24 +1,16 @@
 [
     {
-      "description": "I am shooketh!",
-      "story_id": 1,
-      "user_id": 1
+      "description": "I am shooketh!"
 
     },
     {
-      "description": "I will not be able to sleep tonight.  Good thing I have TikTok",
-      "story_id": 2,
-      "user_id": 1
+      "description": "I will not be able to sleep tonight.  Good thing I have TikTok"
     },
     {
-      "description": "I want more.  I was not scared at all!",
-      "story_id": 3,
-      "user_id": 1
+      "description": "I want more.  I was not scared at all!"
     },
     {
-      "description": "I think I wet myself.",
-      "story_id": 4,
-      "user_id": 1
+      "description": "I think I wet myself."
     }
   ]
   

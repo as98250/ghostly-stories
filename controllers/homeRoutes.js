@@ -36,10 +36,6 @@ router.get('/story/:id', async (req, res) => {
                     model: Comment,
                     include: [User],
                 },
-                {
-                    model: Tag,
-                    through: StoryTag,
-                },
             ],
         });
         if (storyDataId) {

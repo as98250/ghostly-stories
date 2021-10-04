@@ -13,20 +13,6 @@ Comment.init(
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    story_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'story',
-        key: 'id'
-      },
-    },
-    user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'user',
-        key: 'id'
-      }
-    },
   },
   {
     sequelize,

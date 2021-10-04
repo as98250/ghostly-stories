@@ -6,7 +6,7 @@ const StoryTag = require('./StoryTag');
 
 
 User.hasMany(Story, {
-  foreignKey: 'user_id'
+  foreignKey: 'user_id',
 });
 
 Story.belongsTo(User, {
@@ -14,15 +14,17 @@ Story.belongsTo(User, {
 });
 
 User.hasMany(Comment, {
-  foreignKey: 'user_id'
+  foreignKey: 'user_id',
 });
 
 Comment.belongsTo(User, {
   foreignKey: 'user_id',
+  onDelete: 'CASCADE'
 });
 
 Story.hasMany(Comment, {
-  foreignKey: 'story_id'
+  foreignKey: 'story_id',
+  onDelete: 'CASCADE'
 });
 
 Comment.belongsTo(Story, {
@@ -31,7 +33,7 @@ Comment.belongsTo(Story, {
 
 Tag.belongsToMany(Story, {
   through: StoryTag,
-  foreignKey: 'tag_id'
+  foreignKey: 'tag_id',
 });
 
 Story.belongsToMany(Tag, {
