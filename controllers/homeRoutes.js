@@ -56,7 +56,7 @@ router.get('/profile', withAuth, async (req, res) => {
     try {
         const storyData = await Story.findAll({
             where: {
-                id: req.session.userId,
+                user_id: req.session.userId,
             },
             include: [
                 User

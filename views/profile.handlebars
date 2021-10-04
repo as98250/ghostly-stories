@@ -1,7 +1,6 @@
 <div class="justify-content-center text-center">
     <div class="container profileBox">
         <h2 class="singleStory">Welcome to your profile page!</h2>
-        {{!-- PROFILE IMG AND USERNAME SIDE PANEL --}}
         <h2>{{{get_emoji}}}</h2>
         <h3 class="profileUser">{{user.username}}</h3>
     </div>
@@ -9,14 +8,10 @@
         <h3 class="singleStory">Your Stories</h2>
             <div>
             </div>
-            {{!-- STORY SECTION WITH ADD/EDIT BTNs --}}
             {{#each stories as |story|}}
             <div>
                 <div>
-                    {{!-- STORY DISPLAYED --}}
                     <h4>{{story.title}}</h4>
-                    {{!-- <span>{{format_date createdAt}}</span> --}}
-                    {{!-- EDIT STORY BTN (Font Awesome Icon) --}}
                     <a href="/edit/{{story.id}}"><button class="btn login-btn" type="submit">EDIT STORY</button></a>
                 </div>
             </div>
@@ -24,18 +19,18 @@
     </div>
     <div class="container profileBox">
         <h3 class="singleStory">Create New Post</h3>
-        <form id="new-post-form" class="card-body">
-            <label class="form-label" for="post-title">Title</label>
+        <form id="new-story-form" class="card-body">
+            <label class="form-label" >Title</label>
             <br>
-            <input type="text" class="form-input titleInput" />
+            <input type="text" name="story-title" class="form-input titleInput" />
             <br>
-            <label class="form-label" for="post-body">Content</label>
+            <label class="form-label" >Content</label>
             <br>
-            <textarea type="text" class="form-input storyInput"></textarea>
+            <textarea type="text" name="story-content" class="form-input storyInput"></textarea>
             <br>
             <button class="btn login-btn" type="submit">ADD STORY</button>
         </form>
     </div>
 </div>
 
-{{!-- WHERE SHOULD THIS LINK TO?? --}}
+<script src="/js/newstory.js"></script>

@@ -6,7 +6,7 @@ router.post('/', withAuth, async (req, res) => {
     const body = req.body;
 
     try {
-        const story = await Story.create({ ...body, userId: req.session.userId });
+        const story = await Story.create({ ...body, user_id: req.session.userId });
         res.json(story);
     } catch (err) {
         res.status(500).json(err);
