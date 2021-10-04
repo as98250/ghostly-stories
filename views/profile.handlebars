@@ -11,7 +11,7 @@
             {{#each stories as |story|}}
             <div>
                 <div>
-                    <h4>{{story.title}}</h4>
+                    <a href ="/story/{{story.id}}"><h4>{{story.title}}</h4></a>
                     <a href="/edit/{{story.id}}"><button class="btn login-btn" type="submit">EDIT STORY</button></a>
                 </div>
             </div>
