@@ -19,10 +19,6 @@ const seedDatabase = async () => {
     returning: true,
   });
   
-  await Tag.bulkCreate(tagData, {
-    returning: true,
-  });
-  
   await Comment.bulkCreate(commentData, {
     returning: true,
   });
