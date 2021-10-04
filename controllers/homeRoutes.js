@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Story, StoryTag, Tag, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
+const lodash = require('lodash');
 
 // Get all stories and Join with user data
 
@@ -19,8 +20,10 @@ router.get('/', async (req, res) => {
                 ],
             }
         );
-
-        const stories = storyData.map((story) => story.get({ plain: true }));
+        
+        const shuffledStories = lodash.shuffle(storyData);
+        console.log(shuffledStories);
+        const stories = shuffledStories.map((story) => story.get({ plain: true }));
         res.render('homepage', { stories, loggedIn:req.session.loggedIn });
     } catch (err) {
         res.status(500).json(err);
