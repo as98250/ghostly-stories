@@ -16,23 +16,34 @@
   </div>
   <div class="container storyBox">
     <div>
-      {{#if story.comments}}
+      
       <section>
         <div>
           <h3 class="singleStory">Comments</h3>
         </div>
 
+        <div class="container profileBox">
+          <form id="new-comment-form" class="card-body">
+            <input type="hidden" name="story-id" value="{{story.id}}" />
+            <label class="form-label">Add New Comment</label>
+            <br>
+            <textarea type="text" name="comment-description" class="form-input storyInput"></textarea>
+            <br>
+            <button class="btn login-btn" type="submit">ADD COMMENT</button>
+          </form>
+        </div>
+
         <div>
           {{#each story.comments}}
           <div>
-            <p>
-              {{user.username}}: {{description}}
-            </p>
+            <p>{{description}}</p>
           </div>
           {{/each}}
+          <p class="card-text"><small class="text-muted">Created by: {{story.username}}</small></p>
         </div>
       </section>
-      {{/if}}
+    
     </div>
   </div>
 </div>
+<script src="/js/comments.js"></script>
