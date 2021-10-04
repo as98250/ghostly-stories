@@ -41,7 +41,7 @@ header {
     align-items: center;
     padding: 10px 50px;
     background-color: rgba(0, 0, 0, 0.74);
-    border-bottom: solid var(--dark) 5px;
+    /* border-bottom: solid var(--dark) 5px; */
 }
 
 nav a{
@@ -71,7 +71,7 @@ nav a:hover {
   border-radius: 20px;
   margin: 20px 40px;
   background-color:rgba(0, 0, 0, 0.699);
-  border: solid var(--dark) 5px;
+  /* border: solid var(--dark) 5px; */
 }
 
 .homeText {
@@ -97,7 +97,7 @@ nav a:hover {
 
 .storyBox {
   background-color:rgba(70, 10, 10, 0.63);
-  border: solid var(--dark) 5px;
+  /* border: solid var(--dark) 5px; */
   border-radius: 20px;
   margin-top: 25px;
   padding-top: 15px;
@@ -105,8 +105,31 @@ nav a:hover {
 
 .profileBox {
   background-color:rgba(0, 0, 0, 0.699);
-  border: solid var(--dark) 5px;
+  /* border: solid var(--dark) 5px; */
   border-radius: 20px;
   margin-top: 25px;
   padding-top: 15px;
 }
+
+.profileBtn{
+  background-color: var(--dark);
+  color: var(--lightTan);
+  margin: 10px;
+}
+
+.profileBtn:hover {
+  box-shadow: 0 0 15px var(--dark), 0 0 25px silver;
+  color: var(--darkTan)
+}
+
+.titleInput {
+  width: 50%;
+  padding: 5px;
+}
+
+.storyInput {
+  width: 100%;
+  min-height: 200px;
+  padding: 5px;
+}
+
