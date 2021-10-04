@@ -10,12 +10,6 @@ router.get('/', async (req, res) => {
     try {
         // convert to a plain JSON object
         const storyData = await Story.findAll(
-            // {
-            //     limit:7,
-            //     where: [
-            //         content: req.body.content,
-            //     ]
-            // },
             {
                 include: [
                     {
@@ -25,9 +19,8 @@ router.get('/', async (req, res) => {
                 ],
             }
         );
-        //console.log(storyData);
+
         const stories = storyData.map((story) => story.get({ plain: true }));
-        console.log(stories);
         res.render('homepage', { stories });
     } catch (err) {
         res.status(500).json(err);
@@ -59,28 +52,6 @@ router.get('/story/:id', async (req, res) => {
     }
 });
 
-// router.get('/profile/:id', withAuth, async (req, res) => {
-//     try {
-//         const profileData = await User.findByPk(req.params.id, {
-//             include: [
-//                 {
-//                     model: Story,
-//                     attributes: ['user_id', 'title'],
-//                 },
-//             ],
-//         });
-//         const user = profileData.get({ plain: true });
-//         // res.json(user);
-//         res.render('profile', {
-//             user,
-//             // loggedIn: true
-//         });
-//     } catch (err) {
-//         console.log(err);
-//         res.status(500).json(err);
-//     }
-// });
-
 router.get('/profile', withAuth, async (req, res) => {
     try {
         const storyData = await Story.findAll({
@@ -90,23 +61,38 @@ router.get('/profile', withAuth, async (req, res) => {
             include: [
                 User
             ]
-            // include: {
-            //     model: User,
-            //     attributes: ['username']
-            // }
         });
-        // const userData = await User.findbyPk(req.session.userId);
 
+        const userData = await User.findOne(User.username);
         const stories = storyData.map((story) => story.get({ plain: true }));
-        // const users = userData.get( { plain: true });
+        const users = userData.get( { plain: true });
 
 
-        res.render('profile', { stories });
+
+        res.render('profile', { stories, users });
 
     } catch (err) {
         res.redirect('login');
     }
 });
+
+router.get('/edit/:id',withAuth, async (req, res) => {
+    try {
+      const storyData = await Story.findByPk(req.params.id);
+  
+      if (storyData) {
+        const story = storyData.get({ plain: true });
+  
+        res.render('edit', {story});
+      } else {
+        res.status(404).end();
+      }
+    } catch (err) {
+      res.redirect('login');
+    }
+  });
+  
+
 
 router.get('/login', (req, res) => {
     // If the user is already logged in, redirect the request to another route
