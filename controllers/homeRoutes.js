@@ -40,6 +40,7 @@ router.get('/story/:id', async (req, res) => {
         });
         if (storyDataId) {
             const story = storyDataId.get({ plain: true });
+            console.log(story);
             res.render('story', { story, loggedIn:req.session.loggedIn });
         }
     } catch (err) {
