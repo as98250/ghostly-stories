@@ -88,6 +88,7 @@ router.get('/edit/:id',withAuth, async (req, res) => {
         res.status(404).end();
       }
     } catch (err) {
+        console.log(err);
       res.redirect('login');
     }
   });
