@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
         );
 
         const stories = storyData.map((story) => story.get({ plain: true }));
-        res.render('homepage', { stories });
+        res.render('homepage', { stories, loggedIn:req.session.loggedIn });
     } catch (err) {
         res.status(500).json(err);
     }
@@ -44,7 +44,7 @@ router.get('/story/:id', async (req, res) => {
         });
         if (storyDataId) {
             const story = storyDataId.get({ plain: true });
-            res.render('story', { story });
+            res.render('story', { story, loggedIn:req.session.loggedIn });
         }
     } catch (err) {
         console.log(err);
@@ -63,15 +63,15 @@ router.get('/profile', withAuth, async (req, res) => {
             ]
         });
 
-        const userData = await User.findOne(User.username);
+        const userData = await User.findByPk(req.session.userId);
+
         const stories = storyData.map((story) => story.get({ plain: true }));
-        const users = userData.get( { plain: true });
+        const user = userData.get( { plain: true });
 
-
-
-        res.render('profile', { stories, users });
+        res.render('profile', { stories, user, loggedIn:req.session.loggedIn });
 
     } catch (err) {
+        console.log(err);
         res.redirect('login');
     }
 });
@@ -83,7 +83,7 @@ router.get('/edit/:id',withAuth, async (req, res) => {
       if (storyData) {
         const story = storyData.get({ plain: true });
   
-        res.render('edit', {story});
+        res.render('edit', {story, loggedIn:req.session.loggedIn});
       } else {
         res.status(404).end();
       }
@@ -100,7 +100,7 @@ router.get('/login', (req, res) => {
         res.redirect('/');
         return;
     }
-    res.render('login');
+    res.render('login', { loggedIn:req.session.loggedIn });
 
 });
 
@@ -116,7 +116,7 @@ router.get('/signup', (req, res) => {
         return;
     }
 
-    res.render('signup');
+    res.render('signup', { loggedIn:req.session.loggedIn });
 });
 
 module.exports = router;
