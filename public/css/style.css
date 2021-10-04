@@ -74,7 +74,6 @@ nav a:hover {
 .homepageCard {
   text-overflow: ellipsis;
   overflow: hidden;
-  text-decoration: none;
   max-height: 300px;
   color: var(--darkTan);
   border-radius: 20px;
@@ -94,10 +93,13 @@ nav a:hover {
   }
 
 .homepageCard:hover {
-  text-decoration: none;
   box-shadow: 0 0 15px var(--dark), 0 0 25px silver;
   opacity: 1px;
   transform: scale(1.02);
+}
+
+.homeCards:hover {
+  text-decoration: none;
 }
 
 .singleStory {

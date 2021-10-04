@@ -2,21 +2,18 @@ const storyId = document.querySelector('input[name="story-id"]').value;
 
 const editFormHandler = async function(event) {
   event.preventDefault();
-  console.log(1);
-  const storyTitle = document.querySelector('input[name="story-title"]').value;
-  const storyContent = document.querySelector('textarea[name="story-content"]').value;
-  console.log(2);
+  const title = document.querySelector('input[name="story-title"]').value;
+  const content = document.querySelector('textarea[name="story-content"]').value;
   await fetch(`/api/stories/${storyId}`, {
     method: 'PUT',
     body: JSON.stringify({
-      storyTitle,
-      storyContent
+      title,
+      content,
     }),
     headers: {
       'Content-Type': 'application/json'
     }
   });
-  console.log(3);
   document.location.replace('/profile');
 };
 
@@ -28,7 +25,7 @@ const deleteClickHandler = async function() {
 };
 
 document
-  .querySelector('#editBtn')
+  .getElementById('edit-story-form')
   .addEventListener('submit', editFormHandler);
 document
   .querySelector('#deleteBtn')
