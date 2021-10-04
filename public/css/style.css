@@ -65,6 +65,12 @@ nav a:hover {
   text-shadow: 0 0 5px white, 0 0 10px black, 0 0 15px var(--lightRed), 0 0 20px var(--Orange), 0 0 15px white;
 }
 
+.glow:hover {
+  color: var(--lightTan);
+  text-decoration: none;
+  transition: .5s ease;
+}
+
 .homepageCard {
   text-overflow: ellipsis;
   overflow: hidden;
@@ -115,18 +121,6 @@ nav a:hover {
   padding-top: 15px;
 }
 
-.profileBtn{
-  background-color: var(--dark);
-  color: var(--lightTan);
-  margin: 10px;
-}
-
-.profileBtn:hover {
-  box-shadow: 0 0 15px var(--dark), 0 0 25px silver;
-  color: var(--darkTan);
-  transform: scale(1.02);
-}
-
 .profileUser {
     padding-bottom: 15px;
     color: var(--lightRed);
@@ -144,19 +138,7 @@ nav a:hover {
 }
 
 
-#signup-link {
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
-  color: var(--lightRed);
-}
-
-#signup-link:hover {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  color: var(--Orange);
-  transition: .5s ease;
-  font-size: larger;
-}
-
-#login-btn {
+.login-btn {
   color: white;
   background: var(--darkRed);
   font-size: 17px;
@@ -171,7 +153,7 @@ nav a:hover {
 }
 
 /* Ghost-Button */
-#login-btn:hover, #login-btn:active {
+.login-btn:hover, #login-btn:active {
   color:var(--Orange);
   background:white;
   cursor: pointer;
@@ -180,25 +162,19 @@ nav a:hover {
   transform: scale(1.02);
 };
 
-#login-form {
-  background-color: var(--darkRed);
-}
-
-/*  */
-#login-link {
+.signup-link {
   font-family:Verdana, Geneva, Tahoma, sans-serif;
-  color: var(--Purple);
+  color: var(--lightTan);
 }
 
-/* Ghost-Button */
-#login-link:hover {
+.signup-link:hover {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  color: white;
+  color: var(--Orange);
   transition: .5s ease;
   font-size: larger;
 }
 
-#signup-btn {
+.signup-btn {
   color: white;
   background: var(--Purple);
   font-size: 17px;
@@ -213,7 +189,7 @@ nav a:hover {
 }
 
 /* Ghost-Button */
-#signup-btn:hover, #signup-btn:active {
+.signup-btn:hover, .signup-btn:active {
   color:var(--Orange);
   background:white;
   cursor: pointer;
@@ -222,16 +198,3 @@ nav a:hover {
   transform: scale(1.02);
 };
 
-#signup-form {
-  background-color: var(--darkRed);
-}
-
-div label {
-  color: rgba(82, 82, 82, 0.767);
-}
-
-.glow:hover {
-  color: var(--lightTan);
-  text-decoration: none;
-  transition: .5s ease;
-}
