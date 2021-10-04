@@ -44,7 +44,6 @@ header {
     align-items: center;
     padding: 10px 50px;
     background-color: rgba(0, 0, 0, 0.74);
-    /* border-bottom: solid var(--dark) 5px; */
 }
 
 nav a{
@@ -111,7 +110,6 @@ nav a:hover {
 
 .storyBox {
   background-color:rgba(70, 10, 10, 0.63);
-  /* border: solid var(--dark) 5px; */
   border-radius: 20px;
   margin-top: 25px;
   padding-top: 15px;
@@ -119,7 +117,6 @@ nav a:hover {
 
 .profileBox {
   background-color:rgba(0, 0, 0, 0.699);
-  /* border: solid var(--dark) 5px; */
   border-radius: 20px;
   margin-top: 25px;
   padding-top: 15px;
@@ -139,6 +136,16 @@ nav a:hover {
   width: 100%;
   min-height: 200px;
   padding: 5px;
+}
+
+.commentInput {
+  width: 50%;
+  min-height: 75px;
+  padding: 5px;
+}
+
+.comments {
+  font-size: 150%;
 }
 
 
