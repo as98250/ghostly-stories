@@ -21,7 +21,7 @@
         <div>
           <h3 class="singleStory">Comments</h3>
         </div>
-
+      {{#if loggedIn}}
         <div class="container profileBox">
           <form id="new-comment-form" class="card-body">
             <input type="hidden" name="story-id" value="{{story.id}}" />
@@ -32,14 +32,14 @@
             <button class="btn login-btn" type="submit">ADD COMMENT</button>
           </form>
         </div>
-
+      {{/if}}
         <div>
           {{#each story.comments}}
           <div>
-            <p>{{description}}</p>
+          <p>"{{description}}" - {{user.username}}</p>
+          <hr>
           </div>
           {{/each}}
-          <p class="card-text"><small class="text-muted">Created by: {{story.username}}</small></p>
         </div>
       </section>
     
