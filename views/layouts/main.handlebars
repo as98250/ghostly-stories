@@ -20,7 +20,7 @@
 <body>
   <div>
     <div>
-      <header class="fixed-top">
+      <header class="fixed-top d-flex">
         <a class="title glow" href="/">Ghostly Stories</a>
         <nav class="nav">
           {{#if loggedIn}}
@@ -33,16 +33,11 @@
       </header>
     </div>
   </div>
-  <!-- Only display the logout button if the user is logged in -->
-
   <main>
     {{{ body }}}
   </main>
-  <footer>
+  <footer></footer>
 
-  </footer>
-
-  <!-- Only include the logout script if the user is logged in -->
   {{#if loggedIn}}
   <script src="/js/logout.js"></script>
   {{/if}}
