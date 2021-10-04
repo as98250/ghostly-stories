@@ -53,13 +53,16 @@ nav a{
 }
 
 nav a:hover {
-  text-shadow: 1px 1px 2px var(--darkRed), 0 0 25px var(--lightRed), 0 0 5px var(--Orange);
+  text-shadow: 1px 1px 2px var(--Orange), 0 0 10px white, 0 0 5px var(--Orange);
+  color: var(--darkTan);
+  font-size: 220%;
+  transition: .5s ease;
 }
 
 .glow {
   color: var(--darkRed);
   text-align: center;
-  text-shadow:  0 0 10px rgb(224, 170, 170), 0 0 15px var(--lightRed), 0 0 20px var(--Orange);
+  text-shadow: 0 0 5px white, 0 0 10px black, 0 0 15px var(--lightRed), 0 0 20px var(--Orange), 0 0 15px white;
 }
 
 .homepageCard {
@@ -88,6 +91,7 @@ nav a:hover {
   text-decoration: none;
   box-shadow: 0 0 15px var(--dark), 0 0 25px silver;
   opacity: 1px;
+  transform: scale(1.02);
 }
 
 .singleStory {
@@ -119,7 +123,8 @@ nav a:hover {
 
 .profileBtn:hover {
   box-shadow: 0 0 15px var(--dark), 0 0 25px silver;
-  color: var(--darkTan)
+  color: var(--darkTan);
+  transform: scale(1.02);
 }
 
 .profileUser {
@@ -138,3 +143,95 @@ nav a:hover {
   padding: 5px;
 }
 
+
+#signup-link {
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  color: var(--lightRed);
+}
+
+#signup-link:hover {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: var(--Orange);
+  transition: .5s ease;
+  font-size: larger;
+}
+
+#login-btn {
+  color: white;
+  background: var(--darkRed);
+  font-size: 17px;
+  padding: 5px 8px;
+  font-weight: normal;
+  margin: 3px 0;
+  margin-right: 8px;
+  display: inline-block;
+  text-decoration: none;
+  font-family: 'Butcherman', cursive;
+  min-width: 100px;
+}
+
+/* Ghost-Button */
+#login-btn:hover, #login-btn:active {
+  color:var(--Orange);
+  background:white;
+  cursor: pointer;
+  box-shadow: 0px 0px 8px 1px var(--Orange);
+  transition: .5s ease;
+  transform: scale(1.02);
+};
+
+#login-form {
+  background-color: var(--darkRed);
+}
+
+/*  */
+#login-link {
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  color: var(--Purple);
+}
+
+/* Ghost-Button */
+#login-link:hover {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: white;
+  transition: .5s ease;
+  font-size: larger;
+}
+
+#signup-btn {
+  color: white;
+  background: var(--Purple);
+  font-size: 17px;
+  padding: 5px 8px;
+  font-weight: normal;
+  margin: 3px 0;
+  margin-right: 8px;
+  display: inline-block;
+  text-decoration: none;
+  font-family: 'Butcherman', cursive;
+  min-width: 100px;
+}
+
+/* Ghost-Button */
+#signup-btn:hover, #signup-btn:active {
+  color:var(--Orange);
+  background:white;
+  cursor: pointer;
+  box-shadow: 0px 0px 8px 1px var(--Orange);
+  transition: .5s ease;
+  transform: scale(1.02);
+};
+
+#signup-form {
+  background-color: var(--darkRed);
+}
+
+div label {
+  color: rgba(82, 82, 82, 0.767);
+}
+
+.glow:hover {
+  color: var(--lightTan);
+  text-decoration: none;
+  transition: .5s ease;
+}
