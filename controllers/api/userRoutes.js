@@ -28,19 +28,15 @@ router.post('/login', async (req, res) => {
         username: req.body.username,
       },
     });
-    console.log(1);
     if (!user) {
       res.status(400).json({ message: 'DENIED, try again please!' });
       return;
     }
-    console.log(2);
     const acceptedPassword = user.checkPassword(req.body.password);
-    console.log(3);
     if (!acceptedPassword) {
       res.status(400).json({ message: 'DENIED, try again please!' });
       return;
     }
-    console.log(4);
     req.session.save(() => {
       req.session.userId = user.id;
       req.session.username = user.username;
