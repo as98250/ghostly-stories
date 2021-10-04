@@ -27,6 +27,9 @@ main {
     padding-top: 100px;
 }
 
+main > a:hover {
+  text-decoration: none;
+}
 
 .title {
   font-family: 'Butcherman', cursive;
@@ -74,7 +77,6 @@ nav a:hover {
 .homepageCard {
   text-overflow: ellipsis;
   overflow: hidden;
-  max-height: 300px;
   color: var(--darkTan);
   border-radius: 20px;
   margin: 20px 40px;
@@ -200,3 +202,30 @@ nav a:hover {
   transform: scale(1.02);
 };
 
+@media screen and (max-width: 575.98px) { 
+  main {
+    padding-top: 225px;
+  }
+
+  .singleStory {
+    font-size: 150%;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+  .fixed-top {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: static;
+  }
+
+  main {
+    padding-top: 20px;
+  }
+
+  .singleStory {
+    font-size: 250%;
+  }
+}
