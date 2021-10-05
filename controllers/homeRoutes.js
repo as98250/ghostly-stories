@@ -1,15 +1,10 @@
 const router = require('express').Router();
-const { Story, StoryTag, Tag, User, Comment } = require('../models');
+const { Story, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 const lodash = require('lodash');
 
-// Get all stories and Join with user data
-
-//GET Route to grab homepage
-
 router.get('/', async (req, res) => {
     try {
-        // convert to a plain JSON object
         const storyData = await Story.findAll(
             {
                 include: [
@@ -20,11 +15,10 @@ router.get('/', async (req, res) => {
                 ],
             }
         );
-        
+
         const shuffledStories = lodash.shuffle(storyData);
-        console.log(shuffledStories);
         const stories = shuffledStories.map((story) => story.get({ plain: true }));
-        res.render('homepage', { stories, loggedIn:req.session.loggedIn });
+        res.render('homepage', { stories, loggedIn: req.session.loggedIn });
     } catch (err) {
         res.status(500).json(err);
     }
@@ -43,8 +37,8 @@ router.get('/story/:id', async (req, res) => {
         });
         if (storyDataId) {
             const story = storyDataId.get({ plain: true });
-            console.log(story);
-            res.render('story', { story, loggedIn:req.session.loggedIn });
+
+            res.render('story', { story, loggedIn: req.session.loggedIn });
         }
     } catch (err) {
         console.log(err);
@@ -66,9 +60,9 @@ router.get('/profile', withAuth, async (req, res) => {
         const userData = await User.findByPk(req.session.userId);
 
         const stories = storyData.map((story) => story.get({ plain: true }));
-        const user = userData.get( { plain: true });
+        const user = userData.get({ plain: true });
 
-        res.render('profile', { stories, user, loggedIn:req.session.loggedIn });
+        res.render('profile', { stories, user, loggedIn: req.session.loggedIn });
 
     } catch (err) {
         console.log(err);
@@ -76,32 +70,31 @@ router.get('/profile', withAuth, async (req, res) => {
     }
 });
 
-router.get('/edit/:id',withAuth, async (req, res) => {
+router.get('/edit/:id', withAuth, async (req, res) => {
     try {
-      const storyData = await Story.findByPk(req.params.id);
-  
-      if (storyData) {
-        const story = storyData.get({ plain: true });
-  
-        res.render('edit', {story, loggedIn:req.session.loggedIn});
-      } else {
-        res.status(404).end();
-      }
+        const storyData = await Story.findByPk(req.params.id);
+
+        if (storyData) {
+            const story = storyData.get({ plain: true });
+
+            res.render('edit', { story, loggedIn: req.session.loggedIn });
+        } else {
+            res.status(404).end();
+        }
     } catch (err) {
         console.log(err);
-      res.redirect('login');
+        res.redirect('login');
     }
-  });
-  
+});
+
 
 
 router.get('/login', (req, res) => {
-    // If the user is already logged in, redirect the request to another route
     if (req.session.loggedIn) {
         res.redirect('/');
         return;
     }
-    res.render('login', { loggedIn:req.session.loggedIn });
+    res.render('login', { loggedIn: req.session.loggedIn });
 
 });
 
@@ -117,7 +110,7 @@ router.get('/signup', (req, res) => {
         return;
     }
 
-    res.render('signup', { loggedIn:req.session.loggedIn });
+    res.render('signup', { loggedIn: req.session.loggedIn });
 });
 
 module.exports = router;
