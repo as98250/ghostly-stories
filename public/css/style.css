@@ -20,6 +20,7 @@ body{
     background: url("../images/creepystorybg.jpg") no-repeat center center fixed;
     background-size: cover;
     height: 100%;
+    font-size: 125%;
 
 }
 
@@ -144,15 +145,10 @@ nav a:hover {
   padding: 5px;
 }
 
-.comments {
-  font-size: 150%;
-}
-
-
 .login-btn {
   color: white;
   background: var(--darkRed);
-  font-size: 17px;
+  font-size: 25px;
   padding: 5px 8px;
   font-weight: normal;
   margin: 3px 0;
@@ -188,7 +184,7 @@ nav a:hover {
 .signup-btn {
   color: white;
   background: var(--Purple);
-  font-size: 17px;
+  font-size: 25px;
   padding: 5px 8px;
   font-weight: normal;
   margin: 3px 0;
