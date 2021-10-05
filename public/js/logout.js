@@ -9,7 +9,7 @@ const logout = async () => {
     // If successfully logged out, redirect to the login page
     document.location.replace('/login');
   } else {
-    alert(response.statusText);
+    console.log(response.statusText);
   }
 };
 
