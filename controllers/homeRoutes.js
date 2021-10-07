@@ -76,8 +76,13 @@ router.get('/edit/:id', withAuth, async (req, res) => {
 
         if (storyData) {
             const story = storyData.get({ plain: true });
+            if (story.user_id === req.session.userId) {
+            res.render('edit', { story, loggedIn: req.session.loggedIn, valid : true });
+            } else {
+                res.render('edit', {valid : false });
 
-            res.render('edit', { story, loggedIn: req.session.loggedIn });
+            }
+            
         } else {
             res.status(404).end();
         }

@@ -2,6 +2,7 @@
     <div class="container profileBox">
         <h3 class="singleStory">Edit Post</h3>
         <form class="card-body" id="edit-story-form">
+            {{#if valid }}
             <input type="hidden" name="story-id" value="{{story.id}}" />
             <label class="form-label">Title</label>
             <br>
@@ -15,6 +16,10 @@
             <br>
             <button class="btn login-btn" type="submit" id="deleteBtn">Delete</button>
             <br>
+            {{else}}
+            <p> You do not have access to edit this story</p>
+            <a href="/profile">Return to Profile</a>
+            {{/if}}
         </form>
     </div>
 </div>
